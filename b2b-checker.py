@@ -1,4 +1,24 @@
-# Okay, so we got 2 options for checking this. We can do a binary search to compare 2 lists
-# w/ a time complexity of log N, or we can form a list. Nevermind, that's the best option. If I
-# converted the list into a dict, we could search through dict with linear complexity, but in
-# order to do that I'd need to loop through all items in a list, which has o(n) complexity
+def list_lower(arr):
+    try:
+        return (map(lambda guest: guest.lower(), arr))
+    except:
+        print("Looks like your list contains non string values. Please update before trying again")
+
+
+def b2b_checker(list1, list2):
+    b2b_guests = []
+    lowered_list1 = list_lower(list1)
+    lowered_list2 = list_lower(list2)
+
+    for name in lowered_list1:
+        name.lower()
+        if name in lowered_list2:
+            b2b_guests.append(name)
+
+    if b2b_guests == []:
+        return print("There are no B2Bs tonight")
+
+    print("Here are your b2bs", b2b_guests)
+
+
+b2b_checker(["Jcob", "alleya", "Taylor"], ["alanna", "jaCOb", "Taelor"])
